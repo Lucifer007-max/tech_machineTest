@@ -1,0 +1,48 @@
+<div class="bg-pink" >
+<div class="container">
+<div class="pt-3  pb-5">
+    <ul class="breadcrumbs">
+      <a [routerLink]="'/dashboard'" class="breadcrumbs-item">
+        <li>Dashboard</li>
+      </a>
+      <li class="breadcrumbs-item active">Movie List</li>
+    </ul>
+
+    <h4 class="text-center mb-3">Movie List</h4>
+  <table class="table table-hover mat-elevation-z8">
+    <thead>
+      <tr>
+        <th>Sr No.</th>
+        <th>Thumbnail</th>
+        <th>Movie Title</th>
+        <th>Lang</th>
+        <th>Vote & Vote Count</th>
+        <th>Popularity</th>
+        <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of dataSource.displayedResults; let i = index">
+        <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+        <td><img src="https://image.tmdb.org/t/p/w500{{items.poster_path}}" width="100px"/></td>
+        <td>{{items.original_title}}</td>
+        <td>{{items.original_language}}</td>
+        <td>{{items.vote_average}}/10 -- {{items.vote_count}}</td>
+        <td>{{items.popularity}}</td>
+        <td>{{items.release_date}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination-container d-flex justify-content-center align-items-center">
+    <button mat-button (click)="previousPage()" [disabled]="currentPage === 1" class="pagination-button">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span class="px-4">{{ currentPage }}</span>
+  <button mat-button (click)="nextPage()" [disabled]="currentPage === totalPages()" class="pagination-button">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+

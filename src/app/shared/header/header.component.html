@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/dashboard'" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/contact'" routerLinkActive="active">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/movie-list'" routerLinkActive="active">Movie List</a>
+        </li>
+      </ul>
+      <div class="d-flex flex-column">
+        <em color="warn">Hi , {{name}}</em>
+        <button mat-icon-button color="warn" (click)="logout()" >
+          Logout
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

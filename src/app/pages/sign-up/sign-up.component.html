@@ -1,0 +1,53 @@
+<div class="bg-dark " style="height:100vh">
+  <div class="conatiner">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4 col-md-12 ">
+        <form [formGroup]="formData" class="mt-5">
+          <mat-card>
+              <h3 class="text-center border-bottom pb-3 d-block">Login</h3>
+              <mat-card-content class="pt-4">
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput placeholder="Enter your Name"  formControlName="name">
+                  </mat-form-field>
+                </div>
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput placeholder="Enter your Email-Id"  formControlName="email">
+                  </mat-form-field>
+                </div>
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput  [type]="hidePassword ? 'password' : 'text'" placeholder="Enter New Password"  formControlName="password">
+                    <a mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                      <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </a>
+                  </mat-form-field>
+                </div>
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput  [type]="hidePassword2 ? 'password' : 'text'" placeholder="Enter Confrim Password"  formControlName="cpassword">
+                    <a mat-icon-button matSuffix (click)="togglePasswordVisibility2()">
+                      <mat-icon>{{ hidePassword2 ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </a>
+                  </mat-form-field>
+                </div>
+                <div class="d-flex justify-content-center" *ngIf="this.loading == true; else part;">
+                  <img src="assets/loader.gif" class="w-25" />
+                </div>
+                <ng-template #part>
+                  <div class="d-flex justify-content-center align-items-center">
+                    <button type="submit" (click)="handleSignUp($event)" style="max-width: 200px;" mat-button mat-stroked-button color="primary">Login</button>
+                  </div>
+                </ng-template>
+                <h6 class="text-center my-3">or</h6>
+                <div class="d-flex justify-content-center">
+                  <small>Already have an account <a [routerLink]="'/'">Click here</a></small>
+                </div>
+              </mat-card-content>
+            </mat-card>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

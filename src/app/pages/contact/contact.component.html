@@ -1,0 +1,47 @@
+
+<div class="bg-pink"  style="height:100vh">
+  <ul class="breadcrumbs">
+    <a [routerLink]="'/dashboard'" class="breadcrumbs-item">
+      <li>Dashboard</li>
+    </a>
+    <li class="breadcrumbs-item">Contact Us</li>
+  </ul>
+  <div class="conatiner">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4 col-md-12 ">
+        <form [formGroup]="formData">
+          <mat-card>
+              <h3 class="text-center border-bottom pb-3 d-block">Contact Us</h3>
+              <mat-card-content class="pt-4">
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput placeholder="Enter your Name"  formControlName="name">
+                  </mat-form-field>
+                </div>
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput placeholder="Enter your Email-Id"  formControlName="email">
+                  </mat-form-field>
+                  <small *ngIf="formData.get('email').hasError('required') && formData.get('email').touched">
+                    Email is required
+                  </small>
+                </div>
+                <div class="px-3 mb-3">
+                  <mat-form-field class="d-block">
+                    <input matInput type="number" placeholder="Enter Your Phone Number"  formControlName="phone">
+                  </mat-form-field>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <button type="submit" (click)="handleSubmit($event)" style="max-width: 200px;" mat-button mat-stroked-button color="primary">Submit</button>
+                </div>
+              </mat-card-content>
+            </mat-card>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

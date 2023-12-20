@@ -1,0 +1,62 @@
+
+<div class="bg-pink"  style="height:100vh">
+  <div class="conatiner">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4 col-md-12 ">
+        <div class="mt-3">
+          <h2 class="text-center">Recent Humidity</h2>
+          <div class="d-flex justify-content-center mb-3">
+            <!-- <button mat-raised-button color="primary" (click)="fetchRecentHumidity()">Get Humidity</button> -->
+          </div>
+          <mat-card>
+            <h3 class="text-center border-bottom pb-3 d-block">Weather Report</h3>
+            <mat-card-content class="pt-2">
+              <div *ngIf="humidityData.length > 0">
+                <img src="" />
+                <p class="text-center">{{ city }} - Humidity: {{ humidityData[0].day.avgtemp_c }}%</p>
+                <div class="d-flex justify-content-center " >
+
+                  <button  mat-button mat-stroked-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    View More
+                  </button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Weather Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ city }} Weather Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center" *ngIf="humidityData.length > 0">
+            <!-- <p>Last Updated: {{ humidityData[0]}}</p> -->
+            <p>Sunrise: {{ humidityData[0].astro.sunrise}}</p>
+            <p>Sunset: {{ humidityData[0].astro.sunset}}</p>
+
+            <h5 class="border-top border-bottom mb-2 py-2">Weather</h5>
+
+            <img src="https:{{humidityData[0].day.condition.icon}}" />
+            <p>Avg Humidity: {{ humidityData[0].day.avghumidity }}</p>
+            <p>Avg Tamp: {{ humidityData[0].day.avgtemp_c }} °C  /  {{ humidityData[0].day.avgtemp_f }}°F </p>
+            <p>Avg Humidity: {{ humidityData[0].day.condition.text }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
